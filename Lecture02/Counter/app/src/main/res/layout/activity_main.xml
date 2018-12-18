@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/counterTV"
+        android:textSize="32sp"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0" />
+
+    <Button
+        android:onClick="decrement"
+        android:layout_toLeftOf="@id/counterTV"
+        android:layout_below="@id/counterTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--"/>
+
+    <Button
+        android:onClick="increment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/counterTV"
+        android:layout_toRightOf="@id/counterTV"
+        android:text="++"/>
+
+</RelativeLayout>
