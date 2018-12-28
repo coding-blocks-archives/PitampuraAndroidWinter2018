@@ -23,9 +23,13 @@ public class MainActivity extends AppCompatActivity {
 
 //        String url = etUrl.getText().toString();
 
+        final Intent i = new Intent();
+
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                startActivity(i);
 //                String url = "tel:" + etUrl.getText().toString();
 //
 //                Uri uriToView = Uri.parse(url);
@@ -42,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent i = new Intent();
                 i.setAction("xyz");
-
 
 //                i.putExtra("NAME", )
 

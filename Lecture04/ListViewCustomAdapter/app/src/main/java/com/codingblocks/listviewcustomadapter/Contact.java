@@ -21,4 +21,5 @@ public class Contact {
     public String getSurname() {
         return surname;
     }
+
 }

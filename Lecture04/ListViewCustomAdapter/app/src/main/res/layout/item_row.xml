@@ -17,9 +17,8 @@
         android:textSize="32sp" />
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/tvContact"
+        android:id="@+id/tvPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="32sp" />
-
 </LinearLayout>

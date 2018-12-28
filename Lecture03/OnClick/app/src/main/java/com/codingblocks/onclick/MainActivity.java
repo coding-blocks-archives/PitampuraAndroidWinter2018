@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
+//        TextView textView = findViewById(R.id.btnShow)
 //        switch (v.getId()) {
 //            case R.id.btnMum:
 //                doMultiply();

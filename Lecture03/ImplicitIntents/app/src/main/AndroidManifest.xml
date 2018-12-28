@@ -16,7 +16,9 @@
             android:name=".MainActivity"
             android:label="MainActivity">
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -31,10 +33,12 @@
 
                 <action android:name="xyz" />
 
+                <action android:name="android.intent.action.MAIN" />
+
                 <!--<action android:name="android.intent.action.DIAL" />-->
 
                 <!--<data android:scheme="tel" />-->
-
+                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
