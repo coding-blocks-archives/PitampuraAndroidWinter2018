@@ -1,6 +1,8 @@
 package com.codingblocks.listviewcustomadapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,25 +39,27 @@ public class ContactAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
+        Log.e("TAG", "getView: " + convertView);
         LayoutInflater li = LayoutInflater.from(context);
 
-        View inflatedView = li.inflate(R.layout.item_row,
-                parent,
-                false);
+        if (convertView == null) {
+            convertView = li.inflate(
+                    R.layout.item_row,
+                    parent,
+                    false);
 
-        bind(inflatedView, contacts.get(position));
+            ViewHolder vh = new ViewHolder(convertView);
+            convertView.setTag(vh);
+        }
 
-        return inflatedView;
+        bind(convertView, contacts.get(position));
+        return convertView;
     }
 
     private void bind(View inflatedView, final Contact currentContact) {
-        TextView tvName, tvSurname, tvPhone;
-        tvName = inflatedView.findViewById(R.id.tvName);
-        tvSurname = inflatedView.findViewById(R.id.tvSurname);
-        tvPhone = inflatedView.findViewById(R.id.tvPhone);
+        ViewHolder vh = (ViewHolder) inflatedView.getTag();
 
-        tvName.setOnClickListener(new View.OnClickListener() {
+        vh.nameHolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context,
@@ -64,10 +68,20 @@ public class ContactAdapter extends BaseAdapter {
                         .show();
             }
         });
+        vh.nameHolder.setText(currentContact.getName());
+        vh.surnameHolder.setText(currentContact.getSurname());
+        vh.numberHolder.setText(currentContact.getNumber());
+    }
 
-        tvName.setText(currentContact.getName());
-        tvSurname.setText(currentContact.getSurname());
-        tvPhone.setText(currentContact.getNumber());
+    class ViewHolder {
+        TextView nameHolder, surnameHolder, numberHolder;
+
+        public ViewHolder(View view) {
+
+            nameHolder = view.findViewById(R.id.tvName);
+            surnameHolder = view.findViewById(R.id.tvSurname);
+            numberHolder = view.findViewById(R.id.tvPhone);
+        }
     }
 
 }
