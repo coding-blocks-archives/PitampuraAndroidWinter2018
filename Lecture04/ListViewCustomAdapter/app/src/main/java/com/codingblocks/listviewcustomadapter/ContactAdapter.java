@@ -52,12 +52,17 @@ public class ContactAdapter extends BaseAdapter {
             convertView.setTag(vh);
         }
 
-        bind(convertView, contacts.get(position));
+        ViewHolder viewHolder = (ViewHolder) convertView.getTag();
+
+        bind(viewHolder, position);
         return convertView;
     }
 
-    private void bind(View inflatedView, final Contact currentContact) {
-        ViewHolder vh = (ViewHolder) inflatedView.getTag();
+    private void bind(ViewHolder vh, int position) {
+
+        final Contact currentContact = contacts.get(position);
+
+//        ViewHolder vh = (ViewHolder) inflatedView.getTag();
 
         vh.nameHolder.setOnClickListener(new View.OnClickListener() {
             @Override
