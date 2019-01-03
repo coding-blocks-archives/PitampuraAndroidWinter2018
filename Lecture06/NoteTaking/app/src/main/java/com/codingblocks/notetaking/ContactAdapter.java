@@ -27,7 +27,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
 
         context = viewGroup.getContext();
 
-        View inflatedView = li.inflate(R.layout.item_row, viewGroup, false);
+        View inflatedView = li.inflate(R.layout.item_row, viewGroup, true);
 
         return new ContactHolder(inflatedView);
     }
