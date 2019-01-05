@@ -23,6 +23,9 @@ public class MyFragment extends Fragment {
 
         View inflatedView = inflater.inflate(R.layout.fragment_main, container, false);
 
+
+        inflatedView.setBackgroundColor(getContext().getColor(R.color.green));
+
         return inflatedView;
     }
 
