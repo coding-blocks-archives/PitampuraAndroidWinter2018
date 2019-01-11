@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@mipmap/ic_launcher"
+        android:orderInCategory="100"
+        android:title="Home"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_about"
+        android:orderInCategory="300"
+        android:title="About"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_profile"
+        android:orderInCategory="200"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/menu_settings"
+        android:orderInCategory="400"
+        android:title="Settings" />
+
+    <item android:title="Menu container"
+        android:orderInCategory="450">
+
+        <menu>
+            <item
+                android:id="@+id/menu_group1"
+                android:orderInCategory="500"
+                android:title="Sub Menu One" />
+
+            <item
+                android:id="@+id/menu_group2"
+                android:orderInCategory="600"
+                android:title="Sub Menu Two" />
+        </menu>
+    </item>
+
+</menu>
