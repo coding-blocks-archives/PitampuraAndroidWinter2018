@@ -39,7 +39,11 @@ class MainActivity : AppCompatActivity() {
 
         btnSubmit.setOnClickListener {
 
-            val note = Note(etTitle.text.toString(), etDesc.text.toString())
+            val note = Note(
+                etTitle.text.toString(),
+                etDesc.text.toString(),
+                url = Url("test.com", "test url")
+            )
 
             thread {
                 val id = noteDatabase.getNoteDao().insertNote(note)
