@@ -8,18 +8,31 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-              android:id="@+id/etTitle"
-              android:hint="Title goes here"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etTitle"
+            android:hint="Title goes here"/>
 
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-              android:id="@+id/etDesc"
-              android:hint="Description goes here"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etDesc"
+            android:hint="Description goes here"/>
 
-    <Button android:layout_gravity="center"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
+    <Button
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/btnSubmit"
             android:text="Add"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnNewActivity"
+            android:text="New Activity"
+            android:layout_gravity="center"/>
 
     <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
