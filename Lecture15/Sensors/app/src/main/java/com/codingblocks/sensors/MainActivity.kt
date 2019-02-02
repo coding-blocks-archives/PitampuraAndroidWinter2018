@@ -79,14 +79,13 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                     // i.e. 0 in gravity means 0 in RGB
                     // 9.8 in gravity means 255 in RGB
 
-                    val red = 0
-                    val green = 0
-                    val blue = 0
+                    val red: Int = ((x * 255) / 9.8).toInt()
+                    val green: Int = ((y * 255) / 9.8).toInt()
+                    val blue: Int = ((z * 255) / 9.8).toInt()
 
                     val color = Color.rgb(red, green, blue)
 
                     rootLayout.setBackgroundColor(color)
-
                 }
             }
         }
@@ -97,7 +96,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         val accelerometer: Sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)
 //        val proximity = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
 
-        sensorManager.registerListener(this, accelerometer, 500000)
+        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI)
 //        sensorManager.registerListener(this, proximity, 100000)
     }
 
