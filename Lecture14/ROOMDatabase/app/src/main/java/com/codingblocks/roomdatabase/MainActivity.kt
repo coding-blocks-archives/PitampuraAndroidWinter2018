@@ -1,6 +1,8 @@
 package com.codingblocks.roomdatabase
 
 import android.arch.persistence.room.Room
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -10,13 +12,6 @@ import kotlin.concurrent.thread
 import kotlin.math.sign
 
 class MainActivity : AppCompatActivity() {
-
-    private val noteDatabase by lazy {
-        Room.databaseBuilder(this, NotesDatabase::class.java, "notes.db")
-//            .allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
-            .build()
-    }
 
     private val notes = arrayListOf<Note>()
 
@@ -31,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         rvNotes.adapter = noteAdapter
 
         thread {
-            notes.addAll(noteDatabase.getNoteDao().getAllNotes())
+            notes.addAll(MyApplication.myNoteDb.getNoteDao().getAllNotes())
             runOnUiThread {
                 noteAdapter.notifyDataSetChanged()
             }
@@ -46,9 +41,9 @@ class MainActivity : AppCompatActivity() {
             )
 
             thread {
-                val id = noteDatabase.getNoteDao().insertNote(note)
+                val id = MyApplication.myNoteDb.getNoteDao().insertNote(note)
                 Log.e("TAG", "The note is inserted at id $id")
-                val receivedNote = noteDatabase.getNoteDao().getNoteById(id)
+                val receivedNote = MyApplication.myNoteDb.getNoteDao().getNoteById(id)
                 notes.add(receivedNote)
                 runOnUiThread {
                     noteAdapter.notifyItemInserted(notes.size - 1)
@@ -59,6 +54,20 @@ class MainActivity : AppCompatActivity() {
 
 //            notes[notes.size]  =re
 //            noteAdapter.notifyDataSetChanged()
+        }
+
+        btnNewActivity.setOnClickListener {
+
+//            val intent = Intent(this, NewActivity::class.java)
+//
+////            intent.putExtra()
+//
+//            startActivity(intent)
+
+            applicationContext
+
+            finish()
+
         }
 
     }
