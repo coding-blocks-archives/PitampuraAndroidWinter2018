@@ -1,6 +1,7 @@
 package com.codingblocks.sensors
 
 import android.content.Context
+import android.graphics.Color
 import android.hardware.Sensor
 import android.hardware.Sensor.*
 import android.hardware.SensorEvent
@@ -9,6 +10,7 @@ import android.hardware.SensorManager
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), SensorEventListener {
 
@@ -66,11 +68,25 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                     }
                 }
 
-                TYPE_ACCELEROMETER -> {
+                TYPE_GRAVITY -> {
                     accelerometerSensorValues = sensorEvent.values
-                    sensorEvent.values.forEachIndexed { index, fl ->
-                        Log.e("TAG", "Accelerometer Sensor's value at index $index is $fl")
-                    }
+
+                    val x = Math.abs(accelerometerSensorValues[0])
+                    val y = Math.abs(accelerometerSensorValues[1])
+                    val z = Math.abs(accelerometerSensorValues[2])
+
+                    // Scale the value of sensors from 0-9.8 to 0-255
+                    // i.e. 0 in gravity means 0 in RGB
+                    // 9.8 in gravity means 255 in RGB
+
+                    val red = 0
+                    val green = 0
+                    val blue = 0
+
+                    val color = Color.rgb(red, green, blue)
+
+                    rootLayout.setBackgroundColor(color)
+
                 }
             }
         }
@@ -78,11 +94,11 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onStart() {
         super.onStart()
-        val accelerometer: Sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        val proximity = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
+        val accelerometer: Sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)
+//        val proximity = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
 
-        sensorManager.registerListener(this, accelerometer, 100000)
-        sensorManager.registerListener(this, proximity, 100000)
+        sensorManager.registerListener(this, accelerometer, 500000)
+//        sensorManager.registerListener(this, proximity, 100000)
     }
 
     override fun onStop() {
