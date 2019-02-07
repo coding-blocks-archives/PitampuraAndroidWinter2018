@@ -13,11 +13,11 @@ class MainActivity : AppCompatActivity() {
 
     val TAG = "MainActivity"
 
-    val locationClient by lazy {
+    private val locationClient by lazy {
         LocationServices.getFusedLocationProviderClient(this)
     }
 
-    lateinit var locationCallback: LocationCallback
+    private lateinit var locationCallback: LocationCallback
 
     private val locationRequest: LocationRequest by lazy {
         LocationRequest.create().apply {
