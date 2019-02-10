@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            tools:context=".DetailActivity">
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:id="@+id/tvName"
+                  android:textSize="32sp"
+                  android:textStyle="bold"/>
+
+        <ImageView android:layout_width="160dp" android:layout_height="160dp"
+                   android:id="@+id/ivProfile"
+                   android:scaleType="centerCrop"/>
+
+        <TextView android:layout_width="match_parent"
+                  android:textSize="32sp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/tvUserEmail"/>
+
+        <TextView android:layout_width="match_parent"
+                  android:textSize="16sp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/tvUserUid"/>
+
+        <TextView android:layout_width="match_parent"
+                  android:textSize="16sp"
+
+                  android:layout_height="wrap_content"
+                  android:id="@+id/tvUserExtra"/>
+
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/etName"
+                    android:hint="Your Name"/>
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/etPic"
+                    android:layout_height="wrap_content"
+                    android:hint="URL to the profile picture"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:id="@+id/btnLogout"
+                android:text="Log Out"/>
+
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:id="@+id/btnEmail"
+                android:text="Verify Email"/>
+
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:id="@+id/btnUpdateProfile"
+                android:text="Update Profile"/>
+
+    </LinearLayout>
+</ScrollView>
