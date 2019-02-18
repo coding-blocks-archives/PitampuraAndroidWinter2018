@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+            android:layout_height="240dp"
+            android:id="@+id/appBar"
+            android:layout_width="match_parent">
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ImageView
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:id="@+id/toolbarBg"/>
+
+            <android.support.v7.widget.Toolbar
+                    app:titleTextColor="#fff"
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"/>
+
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+    <!--android:id="@+id/tvName"-->
+    <!---->
+    <!--app:layout_anchor="@id/appBar"-->
+    <!--app:layout_anchorGravity="center"-->
+    <!--android:layout_marginTop="240dp"-->
+    <!--android:text="Hello World"/>-->
+
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@drawable/ic_add"/>
+
+</android.support.design.widget.CoordinatorLayout>
